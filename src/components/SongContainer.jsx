@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const SongContainer = () => {
   const [songTitle, setSongTitle] = useState("");
+  const [songAudio, setSongAudio] = useState("./sunshine.mp3");
   const [guessedTitle, setGuessedTitle] = useState("");
   const [correctOrIncorrect, setCorrectOrIncorrect] = useState("");
 
@@ -15,8 +16,9 @@ const SongContainer = () => {
         songTitle={songTitle}
         setGuessedTitle={setGuessedTitle}
         setCorrectOrIncorrect={setCorrectOrIncorrect}
+        setSongAudio={setSongAudio}
       />
-      <Player />
+      <Player songAudio={songAudio} />
       <Form
         songTitle={songTitle}
         guessedTitle={guessedTitle}
