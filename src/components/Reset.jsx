@@ -3,6 +3,8 @@ const Reset = ({
   setGuessedTitle,
   setCorrectOrIncorrect,
   setSongAudio,
+  setPreviousGuesses,
+  setCorrectAnswer,
 }) => {
   // Note this title variable only gets set when reset is hit
   const title = "Walking On Sunshine";
@@ -11,6 +13,8 @@ const Reset = ({
     setSongTitle(title);
     setGuessedTitle("");
     setCorrectOrIncorrect("");
+    setPreviousGuesses([]);
+    setCorrectAnswer("");
   }
 
   return (

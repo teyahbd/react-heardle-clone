@@ -4,6 +4,10 @@ const Form = ({
   setGuessedTitle,
   correctOrIncorrect,
   setCorrectOrIncorrect,
+  setPreviousGuesses,
+  previousGuesses,
+  correctAnswer,
+  setCorrectAnswer,
 }) => {
   function handleChange(event) {
     setGuessedTitle(event.target.value);
@@ -12,12 +16,16 @@ const Form = ({
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(guessedTitle, "handleSubmit guessed value");
-    console.log(guessedTitle.toLowerCase(), songTitle.toLowerCase());
+    console.log(previousGuesses.length);
+    if (previousGuesses.length > 4) {
+      setCorrectAnswer(`The correct answer is... ${songTitle}`);
+    }
     if (guessedTitle.toLowerCase() === songTitle.toLowerCase()) {
+      setPreviousGuesses([...previousGuesses, `✅ ${songTitle}`]);
       setCorrectOrIncorrect("Correct!");
     } else {
       setCorrectOrIncorrect("Incorrect!");
+      setPreviousGuesses([...previousGuesses, `❌ ${guessedTitle}`]);
     }
   }
 
@@ -31,6 +39,7 @@ const Form = ({
         <button type="submit">Submit</button>
       </form>
       <p>{correctOrIncorrect}</p>
+      <h3>{correctAnswer}</h3>
     </div>
   );
 };
