@@ -7,18 +7,13 @@ const Guesses = ({ previousGuesses }) => {
     }
   }
   return (
-    <div>
-      <h2>{guessTexts[0]}</h2>
-      <br />
-      <h2>{guessTexts[1]}</h2>
-      <br />
-      <h2>{guessTexts[2]}</h2>
-      <br />
-      <h2>{guessTexts[3]}</h2>
-      <br />
-      <h2>{guessTexts[4]}</h2>
-      <br />
-      <h2>{guessTexts[5]}</h2>
+    <div id="boxes">
+      <h3>{guessTexts[0]}</h3>
+      <h3>{guessTexts[1]}</h3>
+      <h3>{guessTexts[2]}</h3>
+      <h3>{guessTexts[3]}</h3>
+      <h3>{guessTexts[4]}</h3>
+      <h3>{guessTexts[5]}</h3>
     </div>
   );
 };

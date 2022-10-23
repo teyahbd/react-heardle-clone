@@ -7,3 +7,21 @@
 .App {
   text-align: center;
 }
+
+#boxes {
+  display: block;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 70vw;
+  height: 2.5rem;
+  padding: 1rem;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+}

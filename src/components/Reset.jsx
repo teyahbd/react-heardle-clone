@@ -12,7 +12,6 @@ const Reset = ({
   function handleClick(event) {
     setSongTitle(title);
     setGuessedTitle("");
-    setCorrectOrIncorrect("");
     setPreviousGuesses([]);
     setCorrectAnswer("");
   }

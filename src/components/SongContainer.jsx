@@ -8,7 +8,6 @@ const SongContainer = () => {
   const [songTitle, setSongTitle] = useState("");
   const [songAudio, setSongAudio] = useState("./sunshine.mp3");
   const [guessedTitle, setGuessedTitle] = useState("");
-  const [correctOrIncorrect, setCorrectOrIncorrect] = useState("");
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState("");
 
@@ -18,7 +17,6 @@ const SongContainer = () => {
         setSongTitle={setSongTitle}
         songTitle={songTitle}
         setGuessedTitle={setGuessedTitle}
-        setCorrectOrIncorrect={setCorrectOrIncorrect}
         setSongAudio={setSongAudio}
         setPreviousGuesses={setPreviousGuesses}
         setCorrectAnswer={setCorrectAnswer}
@@ -29,8 +27,6 @@ const SongContainer = () => {
         songTitle={songTitle}
         guessedTitle={guessedTitle}
         setGuessedTitle={setGuessedTitle}
-        correctOrIncorrect={correctOrIncorrect}
-        setCorrectOrIncorrect={setCorrectOrIncorrect}
         setPreviousGuesses={setPreviousGuesses}
         previousGuesses={previousGuesses}
         correctAnswer={correctAnswer}
