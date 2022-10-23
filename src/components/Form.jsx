@@ -35,7 +35,7 @@ const Form = ({
         <br />
         <button type="submit">Submit</button>
       </form>
-      <p>{correctAnswer}</p>
+      <h3>{correctAnswer}</h3>
     </div>
   );
 };

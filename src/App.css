@@ -10,7 +10,7 @@
 .App {
   text-align: center;
   font-family: "Montserrat";
-  color: white;
+  color: pink;
 }
 
 #boxes {
@@ -21,25 +21,25 @@ h1 {
   margin: 0.8rem;
 }
 
-h3,
+p,
 input {
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 0.8px solid #a7a7a7;
+  text-align: left;
+  border: 0.8px solid pink;
   width: 55vw;
   height: 2.5rem;
   padding: 1rem;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: white;
+  color: pink;
 }
 
 button {
   color: white;
 }
 hr {
-  border: 0.5px solid #a7a7a7;
+  border: 0.5px solid pink;
   margin: 0 auto;
 }

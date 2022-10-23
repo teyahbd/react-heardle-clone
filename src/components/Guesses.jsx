@@ -8,12 +8,12 @@ const Guesses = ({ previousGuesses }) => {
   }
   return (
     <div id="boxes">
-      <h3>{guessTexts[0]}</h3>
-      <h3>{guessTexts[1]}</h3>
-      <h3>{guessTexts[2]}</h3>
-      <h3>{guessTexts[3]}</h3>
-      <h3>{guessTexts[4]}</h3>
-      <h3>{guessTexts[5]}</h3>
+      <p>{guessTexts[0]}</p>
+      <p>{guessTexts[1]}</p>
+      <p>{guessTexts[2]}</p>
+      <p>{guessTexts[3]}</p>
+      <p>{guessTexts[4]}</p>
+      <p>{guessTexts[5]}</p>
     </div>
   );
 };
