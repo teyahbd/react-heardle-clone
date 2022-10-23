@@ -5,7 +5,7 @@ import Guesses from "./Guesses";
 import { useState } from "react";
 
 const SongContainer = () => {
-  const [songTitle, setSongTitle] = useState("");
+  const [songTitle, setSongTitle] = useState("Walking On Sunshine");
   const [songAudio, setSongAudio] = useState("./sunshine.mp3");
   const [guessedTitle, setGuessedTitle] = useState("");
   const [previousGuesses, setPreviousGuesses] = useState([]);
@@ -22,6 +22,7 @@ const SongContainer = () => {
         setCorrectAnswer={setCorrectAnswer}
       />
       <Guesses previousGuesses={previousGuesses} />
+      <hr />
       <Player songAudio={songAudio} />
       <Form
         songTitle={songTitle}

@@ -19,9 +19,11 @@ const Form = ({
     }
     if (guessedTitle.toLowerCase() === songTitle.toLowerCase()) {
       setPreviousGuesses([...previousGuesses, `${songTitle}`]);
+      setCorrectAnswer(`The correct answer is... ${songTitle}`);
     } else {
       setPreviousGuesses([...previousGuesses, `❌ ${guessedTitle}`]);
     }
+    setGuessedTitle("");
   }
 
   return (

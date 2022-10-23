@@ -1,27 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #121212;
 }
 
 .App {
   text-align: center;
+  font-family: "Montserrat";
+  color: white;
 }
 
 #boxes {
   display: block;
 }
 
-h3 {
+h1 {
+  margin: 0.8rem;
+}
+
+h3,
+input {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  width: 70vw;
+  border: 0.8px solid #a7a7a7;
+  width: 55vw;
   height: 2.5rem;
   padding: 1rem;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: black;
+  color: white;
+}
+
+button {
+  color: white;
+}
+hr {
+  border: 0.5px solid #a7a7a7;
+  margin: 0 auto;
 }

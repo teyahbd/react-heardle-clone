@@ -1,8 +1,6 @@
 const Reset = ({
   setSongTitle,
   setGuessedTitle,
-  setCorrectOrIncorrect,
-  setSongAudio,
   setPreviousGuesses,
   setCorrectAnswer,
 }) => {
