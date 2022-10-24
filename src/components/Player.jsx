@@ -1,20 +1,24 @@
-import audio from "./sunshine.mp3";
-
-const Player = ({ songAudio }) => {
-  const audioElement = new Audio(audio);
-
+const Player = ({ skipCount, isCorrect, audio, isPlaying, setIsPlaying }) => {
   function pauseAudio() {
-    audioElement.pause();
-    console.log(audioElement.currentTime);
+    audio.pause();
+    audio.currentTime = 0;
+    setIsPlaying(false);
   }
 
   function handleClick() {
-    audioElement.play();
-    setTimeout(pauseAudio, 5000);
+    if (isCorrect) {
+      audio.play();
+    } else if (!isPlaying) {
+      audio.play();
+      setIsPlaying(true);
+      setTimeout(pauseAudio, 5000 + skipCount * 5000);
+    }
   }
   return (
     <div>
-      <button onClick={handleClick}>Play</button>
+      <button type="button" disabled={isPlaying} onClick={handleClick}>
+        Play
+      </button>
     </div>
   );
 };

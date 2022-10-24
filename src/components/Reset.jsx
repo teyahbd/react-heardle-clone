@@ -1,17 +1,19 @@
 const Reset = ({
-  setSongTitle,
   setGuessedTitle,
   setPreviousGuesses,
   setCorrectAnswer,
+  setIsCorrect,
+  setIsPlaying,
+  audio,
 }) => {
-  // Note this title variable only gets set when reset is hit
-  const title = "Walking On Sunshine";
-
   function handleClick(event) {
-    setSongTitle(title);
     setGuessedTitle("");
     setPreviousGuesses([]);
     setCorrectAnswer("");
+    setIsCorrect(false);
+    setIsPlaying(false);
+    audio.pause();
+    audio.currentTime = 0;
   }
 
   return (

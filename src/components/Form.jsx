@@ -6,6 +6,8 @@ const Form = ({
   previousGuesses,
   correctAnswer,
   setCorrectAnswer,
+  isCorrect,
+  setIsCorrect,
 }) => {
   function handleChange(event) {
     setGuessedTitle(event.target.value);
@@ -13,13 +15,13 @@ const Form = ({
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    if (previousGuesses.length > 4) {
+    if (guessedTitle.length < 1) {
+    } else if (previousGuesses.length > 4) {
       setCorrectAnswer(`The correct answer is... ${songTitle}`);
-    }
-    if (guessedTitle.toLowerCase() === songTitle.toLowerCase()) {
+    } else if (guessedTitle.toLowerCase() === songTitle.toLowerCase()) {
       setPreviousGuesses([...previousGuesses, `${songTitle}`]);
       setCorrectAnswer(`The correct answer is... ${songTitle}`);
+      setIsCorrect(true);
     } else {
       setPreviousGuesses([...previousGuesses, `❌ ${guessedTitle}`]);
     }
@@ -33,7 +35,9 @@ const Form = ({
         <br />
         <input type="text" value={guessedTitle} onChange={handleChange} />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={isCorrect}>
+          Submit
+        </button>
       </form>
       <h3>{correctAnswer}</h3>
     </div>
