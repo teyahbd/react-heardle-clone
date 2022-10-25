@@ -1,16 +1,8 @@
-const Player = ({
-  skipCount,
-  isCorrect,
-  audio,
-  isPlaying,
-  setIsPlaying,
-  setIsSkipDisabled,
-}) => {
+const Play = ({ skipCount, isCorrect, audio, isPlaying, setIsPlaying }) => {
   function pauseAudio() {
     audio.pause();
     audio.currentTime = 0;
     setIsPlaying(false);
-    setIsSkipDisabled(false);
   }
 
   function handleClick() {
@@ -19,7 +11,6 @@ const Player = ({
     } else if (!isPlaying) {
       audio.play();
       setIsPlaying(true);
-      setIsSkipDisabled(true);
       setTimeout(pauseAudio, 5000 + skipCount * 5000);
     }
   }
@@ -32,4 +23,4 @@ const Player = ({
   );
 };
 
-export default Player;
+export default Play;

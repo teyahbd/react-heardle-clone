@@ -1,4 +1,4 @@
-const Guesses = ({ previousGuesses }) => {
+const GuessBoxes = ({ previousGuesses }) => {
   let guessTexts = ["", "", "", "", "", ""];
 
   if (previousGuesses.length > 0) {
@@ -18,4 +18,4 @@ const Guesses = ({ previousGuesses }) => {
   );
 };
 
-export default Guesses;
+export default GuessBoxes;
