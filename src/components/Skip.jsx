@@ -1,10 +1,17 @@
-const Skip = ({ previousGuesses, setPreviousGuesses, isCorrect }) => {
+const Skip = ({
+  previousGuesses,
+  setPreviousGuesses,
+  isPlaying,
+  isSkipDisabled,
+}) => {
   function handleClick() {
-    setPreviousGuesses([...previousGuesses, "SKIPPED"]);
+    if (!isPlaying) {
+      setPreviousGuesses([...previousGuesses, "SKIPPED"]);
+    }
   }
   return (
     <>
-      <button type="button" onClick={handleClick} disabled={isCorrect}>
+      <button type="button" onClick={handleClick} disabled={isSkipDisabled}>
         SKIP (+5s)
       </button>
     </>

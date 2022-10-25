@@ -8,6 +8,7 @@ const Form = ({
   setCorrectAnswer,
   isCorrect,
   setIsCorrect,
+  setIsSkipDisabled,
 }) => {
   function handleChange(event) {
     setGuessedTitle(event.target.value);
@@ -22,6 +23,7 @@ const Form = ({
       setPreviousGuesses([...previousGuesses, `${songTitle}`]);
       setCorrectAnswer(`The correct answer is... ${songTitle}`);
       setIsCorrect(true);
+      setIsSkipDisabled(true);
     } else {
       setPreviousGuesses([...previousGuesses, `❌ ${guessedTitle}`]);
     }

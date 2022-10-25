@@ -13,6 +13,7 @@ const SongContainer = () => {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isSkipDisabled, setIsSkipDisabled] = useState(false);
 
   const audioElement = new Audio(audioFile);
   const [audio, setAudio] = useState(audioElement);
@@ -26,6 +27,7 @@ const SongContainer = () => {
         setIsCorrect={setIsCorrect}
         setIsPlaying={setIsPlaying}
         audio={audio}
+        setIsSkipDisabled={setIsSkipDisabled}
       />
       <Guesses previousGuesses={previousGuesses} />
       <hr />
@@ -35,6 +37,7 @@ const SongContainer = () => {
         audio={audio}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
+        setIsSkipDisabled={setIsSkipDisabled}
       />
       <Form
         songTitle={songTitle}
@@ -46,11 +49,13 @@ const SongContainer = () => {
         setCorrectAnswer={setCorrectAnswer}
         isCorrect={isCorrect}
         setIsCorrect={setIsCorrect}
+        setIsSkipDisabled={setIsSkipDisabled}
       />
       <Skip
-        isCorrect={isCorrect}
         setPreviousGuesses={setPreviousGuesses}
         previousGuesses={previousGuesses}
+        isPlaying={isPlaying}
+        isSkipDisabled={isSkipDisabled}
       />
     </>
   );

@@ -5,6 +5,7 @@ const Reset = ({
   setIsCorrect,
   setIsPlaying,
   audio,
+  setIsSkipDisabled,
 }) => {
   function handleClick(event) {
     setGuessedTitle("");
@@ -12,6 +13,7 @@ const Reset = ({
     setCorrectAnswer("");
     setIsCorrect(false);
     setIsPlaying(false);
+    setIsSkipDisabled(false);
     audio.pause();
     audio.currentTime = 0;
   }
