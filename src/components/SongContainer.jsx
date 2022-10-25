@@ -6,14 +6,17 @@ import Skip from "./Skip";
 import { useState } from "react";
 import audioFile from "./sunshine.mp3";
 
-const SongContainer = () => {
+const SongContainer = ({ albumURL, token, setAlbumURL }) => {
+  // use arrays for state here and destructure into components?
   const [songTitle, setSongTitle] = useState("Walking On Sunshine");
+  const [artist, setArtist] = useState("Katrina and the Waves");
   const [guessedTitle, setGuessedTitle] = useState("");
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSkipDisabled, setIsSkipDisabled] = useState(false);
+  const [suggestions, setSuggestions] = useState(["", "", ""]);
 
   const audioElement = new Audio(audioFile);
   const [audio, setAudio] = useState(audioElement);
@@ -39,6 +42,12 @@ const SongContainer = () => {
         setIsPlaying={setIsPlaying}
         setIsSkipDisabled={setIsSkipDisabled}
       />
+      <Skip
+        setPreviousGuesses={setPreviousGuesses}
+        previousGuesses={previousGuesses}
+        isPlaying={isPlaying}
+        isSkipDisabled={isSkipDisabled}
+      />
       <Form
         songTitle={songTitle}
         guessedTitle={guessedTitle}
@@ -50,12 +59,12 @@ const SongContainer = () => {
         isCorrect={isCorrect}
         setIsCorrect={setIsCorrect}
         setIsSkipDisabled={setIsSkipDisabled}
-      />
-      <Skip
-        setPreviousGuesses={setPreviousGuesses}
-        previousGuesses={previousGuesses}
-        isPlaying={isPlaying}
-        isSkipDisabled={isSkipDisabled}
+        albumURL={albumURL}
+        artist={artist}
+        token={token}
+        setAlbumURL={setAlbumURL}
+        suggestions={suggestions}
+        setSuggestions={setSuggestions}
       />
     </>
   );
