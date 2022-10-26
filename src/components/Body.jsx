@@ -1,39 +1,37 @@
 import GuessBoxes from "./Body/GuessBoxes";
 import Result from "./Body/Result";
 import Search from "./Body/Search";
-import Suggest from "./Body/Suggest";
+import Options from "./Body/Options";
 import Skip from "./Body/Skip";
 import Play from "./Body/Play";
+import * as spotifyApi from "../api";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import audioFile from "./sunshine.mp3";
 
 const Container = ({ token }) => {
   const [previousGuesses, setPreviousGuesses] = useState([]);
-  const [trackData, setTrackData] = useState([
-    "Walking On Sunshine",
-    "Katrina and the Waves",
-  ]);
-  const [albumImgURL, setAlbumImgURL] = useState("");
+  const [trackData, setTrackData] = useState(["", "", ""]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [titleGuess, setTitleGuess] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [guessOptions, setGuessOptions] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [songId, setSongId] = useState("05wIrZSwuaVWhcv5FfqeH0");
 
   const audioElement = new Audio(audioFile);
   const [audio, setAudio] = useState(audioElement);
 
+  useEffect(() => {
+    spotifyApi.fetchSong(songId, token).then(({ data }) => {
+      setTrackData([data.name, data.artists[0].name, data.album.images[0].url]);
+    });
+  }, [songId]);
+
   return (
     <div>
       {isCorrect || previousGuesses.length > 5 ? (
-        <Result
-          token={token}
-          trackData={trackData}
-          isCorrect={isCorrect}
-          albumImgURL={albumImgURL}
-          setAlbumImgURL={setAlbumImgURL}
-        />
+        <Result trackData={trackData} />
       ) : (
         <>
           <GuessBoxes previousGuesses={previousGuesses} />
@@ -44,10 +42,10 @@ const Container = ({ token }) => {
             setIsPlaying={setIsPlaying}
             audio={audio}
           ></Play>
-          <Suggest
+          <Options
             titleGuess={titleGuess}
-            suggestions={suggestions}
-            setSuggestions={setSuggestions}
+            guessOptions={guessOptions}
+            setGuessOptions={setGuessOptions}
             token={token}
           />
           <Search
@@ -58,7 +56,7 @@ const Container = ({ token }) => {
             setIsCorrect={setIsCorrect}
             titleGuess={titleGuess}
             setTitleGuess={setTitleGuess}
-            setSuggestions={setSuggestions}
+            setGuessOptions={setGuessOptions}
           />
           <Skip
             isPlaying={isPlaying}

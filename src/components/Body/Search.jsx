@@ -6,7 +6,7 @@ const Search = ({
   previousGuesses,
   isCorrect,
   setIsCorrect,
-  setSuggestions,
+  setGuessOptions,
 }) => {
   function handleChange(event) {
     if (!isCorrect) {
@@ -23,7 +23,7 @@ const Search = ({
       setPreviousGuesses([...previousGuesses, `❌ ${titleGuess}`]);
     }
     setTitleGuess("");
-    setSuggestions(["", "", ""]);
+    setGuessOptions(["", "", ""]);
   }
 
   return (
