@@ -1,5 +1,5 @@
-const InfoButton = () => {
-  return <button></button>;
+const InfoButton = ({ icon }) => {
+  return <button className="info-button">{icon}</button>;
 };
 
 export default InfoButton;

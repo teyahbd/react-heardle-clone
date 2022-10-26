@@ -44,6 +44,18 @@ hr {
   margin: 0 auto;
 }
 
-.green {
-  color: green;
+#header {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+
+.info-button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 2px solid pink;
+  font-size: large;
+  color: pink;
+  margin: 1rem;
 }
