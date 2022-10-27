@@ -59,3 +59,15 @@ hr {
   color: pink;
   margin: 1rem;
 }
+
+#start-button {
+  border: 3px solid pink;
+  font-size: large;
+  padding: 0.5rem;
+  color: pink;
+  margin-top: 5rem;
+}
+
+#player-buttons {
+  display: flex;
+}
