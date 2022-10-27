@@ -8,7 +8,7 @@ function App() {
   const [isStart, setIsStart] = useState(false);
 
   const CLIENT_ID = "1ba3bbc285f84064a3bacc35e2106001";
-  const REDIRECT_URI = "http://localhost:3000";
+  const REDIRECT_URI = "https://react-heardle-clone.herokuapp.com/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
   window.localStorage.removeItem("token");
@@ -30,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <hr />
       {token ? (
         <Body
           token={token}
@@ -41,10 +42,9 @@ function App() {
         <a
           href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
         >
-          <button>START</button>
+          <button id="start-button">START</button>
         </a>
       )}
-      <hr />
     </div>
   );
 }
