@@ -15,11 +15,9 @@ const Play = ({ skipCount, isCorrect, audio, isPlaying, setIsPlaying }) => {
     }
   }
   return (
-    <div>
-      <button type="button" disabled={isPlaying} onClick={handleClick}>
-        Play
-      </button>
-    </div>
+    <a disabled={isPlaying} onClick={handleClick} class="wrap">
+      <div class="circle"></div>
+    </a>
   );
 };
 

@@ -2,13 +2,14 @@ import GuessBoxes from "./Body/GuessBoxes";
 import Result from "./Body/Result";
 import Search from "./Body/Search";
 import Options from "./Body/Options";
-import Skip from "./Body/Skip";
 import Play from "./Body/Play";
+import ReactSuggestions from "./Body/ReactSuggestions";
 import * as spotifyApi from "../api";
 
 import { useEffect, useState } from "react";
 
 import audioFile from "./sunshine.mp3";
+import Suggestions from "./Body/ReactSuggestions";
 
 const Container = ({ token }) => {
   const [previousGuesses, setPreviousGuesses] = useState([]);
@@ -35,18 +36,24 @@ const Container = ({ token }) => {
       ) : (
         <>
           <GuessBoxes previousGuesses={previousGuesses} />
+          <br />
           <Play
             skipCount={previousGuesses.length}
             isCorrect={isCorrect}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
             audio={audio}
-          ></Play>
+          />
+          <br />
           <Options
             titleGuess={titleGuess}
             guessOptions={guessOptions}
             setGuessOptions={setGuessOptions}
             token={token}
+          />
+          <ReactSuggestions
+            guessOptions={guessOptions}
+            titleGuess={titleGuess}
           />
           <Search
             previousGuesses={previousGuesses}
@@ -57,12 +64,8 @@ const Container = ({ token }) => {
             titleGuess={titleGuess}
             setTitleGuess={setTitleGuess}
             setGuessOptions={setGuessOptions}
-          />
-          <Skip
             isPlaying={isPlaying}
-            setPreviousGuesses={setPreviousGuesses}
-            previousGuesses={previousGuesses}
-          ></Skip>
+          />
         </>
       )}
     </div>

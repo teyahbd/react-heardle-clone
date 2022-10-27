@@ -7,10 +7,17 @@ const Search = ({
   isCorrect,
   setIsCorrect,
   setGuessOptions,
+  isPlaying,
 }) => {
   function handleChange(event) {
     if (!isCorrect) {
       setTitleGuess(event.target.value);
+    }
+  }
+
+  function handleClick() {
+    if (!isPlaying) {
+      setPreviousGuesses([...previousGuesses, "SKIPPED"]);
     }
   }
 
@@ -27,13 +34,22 @@ const Search = ({
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={titleGuess} onChange={handleChange} />
-        <br />
-        <button type="submit">SUBMIT</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={titleGuess} onChange={handleChange} />
+      <div id="guess-buttons">
+        <button type="submit" id="submit">
+          SUBMIT
+        </button>
+        <button
+          type="button"
+          onClick={handleClick}
+          disabled={isPlaying}
+          id="skip"
+        >
+          SKIP (+5s)
+        </button>
+      </div>
+    </form>
   );
 };
 

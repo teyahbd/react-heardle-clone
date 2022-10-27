@@ -3,9 +3,9 @@ import InfoButton from "./InfoButton";
 const Header = () => {
   return (
     <div id="header">
-      <InfoButton icon="i" />
-      <h1>HERdle</h1>
-      <InfoButton icon="?" />
+      <InfoButton type="info" />
+      <h1>Heardle</h1>
+      <InfoButton type="help" />
     </div>
   );
 };

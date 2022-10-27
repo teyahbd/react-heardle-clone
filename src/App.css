@@ -21,7 +21,7 @@ h1 {
   margin: 0.8rem;
 }
 
-p,
+#boxes > p,
 input {
   display: flex;
   align-items: center;
@@ -58,16 +58,133 @@ hr {
   font-size: large;
   color: pink;
   margin: 1rem;
+  cursor: pointer;
 }
 
-#start-button {
-  border: 3px solid pink;
+#info-button {
+  margin-right: 20%;
+}
+#help-button {
+  margin-left: 20%;
+}
+
+#start-button,
+#submit,
+#skip {
+  border: 1.5px solid pink;
   font-size: large;
   padding: 0.5rem;
   color: pink;
   margin-top: 5rem;
+  cursor: pointer;
 }
 
 #player-buttons {
   display: flex;
+}
+
+#guess-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#submit,
+#skip {
+  margin: 2rem;
+}
+
+#submit {
+  margin-right: 20%;
+}
+
+#skip {
+  margin-left: 20%;
+}
+
+#submit:disabled,
+#skip:disabled {
+  border: 2px solid rgb(180, 137, 144);
+  font-size: large;
+  padding: 0.5rem;
+  color: rgb(180, 137, 144);
+  margin-top: 5rem;
+}
+
+.wrap {
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.circle {
+  border: 2px solid pink;
+  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.circle:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 30px;
+  border-color: transparent transparent transparent pink;
+  position: absolute;
+  top: 15px;
+  left: -12px;
+  margin: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  text-align: center;
+  position: fixed;
+  background: #121212;
+  width: 40%;
+  height: fit-content;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid pink;
+  padding: 2rem;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+#close-button {
+  font-family: "Montserrat";
+  font-size: x-large;
+  color: pink;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+
+.modal-main > p {
+  border: none;
+  color: pink;
+  margin: 1rem;
+  margin-top: 0;
+  line-height: 1.5;
 }

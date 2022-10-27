@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import * as spotifyApi from "../../api";
-import Autosuggest from "react-autosuggest/dist/Autosuggest";
 
 //https://www.npmjs.com/package/react-autosuggest
 
