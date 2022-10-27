@@ -8,7 +8,7 @@ function App() {
   const [isStart, setIsStart] = useState(false);
 
   const CLIENT_ID = "1ba3bbc285f84064a3bacc35e2106001";
-  const REDIRECT_URI = "https://react-heardle-clone.herokuapp.com/";
+  const REDIRECT_URI = "https://react-heardle-clone.herokuapp.com";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
   window.localStorage.removeItem("token");
