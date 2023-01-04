@@ -1,50 +1,51 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Body from "./components/Body";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Buffer } from "buffer";
 
 function App() {
   const [token, setToken] = useState("");
-  const [isStart, setIsStart] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const CLIENT_ID = "1ba3bbc285f84064a3bacc35e2106001";
-  const REDIRECT_URI = "http://localhost:3000";
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-  const RESPONSE_TYPE = "token";
-  window.localStorage.removeItem("token");
-  const hash = window.location.hash;
-  let authToken = window.localStorage.getItem("token");
+  const client_id = process.env.REACT_APP_CLIENT_ID;
+  const client_secret = process.env.REACT_APP_CLIENT_SECRET;
 
-  if (!authToken && hash) {
-    authToken = hash
-      .substring(1)
-      .split("&")
-      .find((element) => element.startsWith("access_token"))
-      .split("=")[1];
+  useEffect(() => {
+    axios({
+      method: "post",
+      url: "https://accounts.spotify.com/api/token",
+      headers: {
+        Authorization:
+          "Basic " +
+          new Buffer.from(client_id + ":" + client_secret).toString("base64"),
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: {
+        grant_type: "client_credentials",
+      },
+      json: true,
+    })
+      .then((body) => {
+        console.log(body.data.access_token);
+        setToken(body.data.access_token);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        console.log(e.response.data);
+      });
+  }, []);
 
-    window.location.hash = "";
-    window.localStorage.setItem("token", authToken);
-    setToken(authToken);
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="App">
       <Header />
       <hr />
-      {token ? (
-        <Body
-          token={token}
-          setToken={setToken}
-          isStart={isStart}
-          setIsStart={setIsStart}
-        />
-      ) : (
-        <a
-          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
-        >
-          <button id="start-button">START</button>
-        </a>
-      )}
+      <Body token={token} />
     </div>
   );
 }
