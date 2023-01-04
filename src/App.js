@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "./components/Header/Header";
 import Body from "./components/Body";
+import InfoButton from "./components/InfoButton";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Buffer } from "buffer";
@@ -43,7 +43,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <div id="header">
+        <InfoButton type="info" />
+        <h1>Heardle</h1>
+        <InfoButton type="help" />
+      </div>
       <hr />
       <Body token={token} />
     </div>
