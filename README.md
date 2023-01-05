@@ -2,9 +2,9 @@
 
 ## About
 
-This a small project with the aim to build my own version of the game [Heardle](https://www.spotify.com/heardle/?) in React. I play the game regularly and after first beginning to learn React, I was inspired to give it a try myself! The app accesses the Spotify API for track data - in particular a search feature that shows a list of possible songs based on the users input.
+This a personal project with the aim to build my own version of the game [Heardle](https://www.spotify.com/heardle/?) in React. I play the game regularly and after first beginning to learn React, I was inspired to give it a try myself! The app accesses the Spotify API for track data - in particular a search feature that shows a list of possible songs based on the users input. I have avoided looking at similar projects while working on this app to encourage myself to explore different ways of implementing the features of the original.
 
-The project is a work in progress! My skills have developed a lot since I first began this project so I hope to do some light refactoring with my new knowledge before hosting the app. I'm currently using a royalty-free placeholder for the song to guess and hope to replace this so the game is actually playable.
+The project is a work in progress! My skills have developed a lot since I first began this project so I hope to do some light refactoring with my new knowledge before hosting the app. I'm currently using a royalty-free placeholder for the song to guess and hope to replace this so the game is playable.
 
 ### Future Goals
 
