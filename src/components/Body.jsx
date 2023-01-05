@@ -1,5 +1,5 @@
-import GuessBoxes from "./Body/GuessBoxes";
-import Result from "./Body/Result";
+import GuessBoxes from "./GuessBoxes";
+import Result from "./Result";
 import Search from "./Body/Search";
 import Options from "./Body/Options";
 import Play from "./Body/Play";
@@ -9,9 +9,8 @@ import * as spotifyApi from "../api";
 import { useEffect, useState } from "react";
 
 import audioFile from "./sunshine.mp3";
-import Suggestions from "./Body/ReactSuggestions";
 
-const Container = ({ token }) => {
+const Body = ({ token }) => {
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const [trackData, setTrackData] = useState(["", "", ""]);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -30,9 +29,14 @@ const Container = ({ token }) => {
   }, [songId]);
 
   return (
-    <div>
+    <div id="body">
       {isCorrect || previousGuesses.length > 5 ? (
-        <Result trackData={trackData} />
+        <Result
+          trackData={trackData}
+          isCorrect={isCorrect}
+          setPreviousGuesses={setPreviousGuesses}
+          setIsCorrect={setIsCorrect}
+        />
       ) : (
         <>
           <GuessBoxes previousGuesses={previousGuesses} />
@@ -51,10 +55,6 @@ const Container = ({ token }) => {
             setGuessOptions={setGuessOptions}
             token={token}
           />
-          <ReactSuggestions
-            guessOptions={guessOptions}
-            titleGuess={titleGuess}
-          />
           <Search
             previousGuesses={previousGuesses}
             setPreviousGuesses={setPreviousGuesses}
@@ -72,4 +72,4 @@ const Container = ({ token }) => {
   );
 };
 
-export default Container;
+export default Body;
