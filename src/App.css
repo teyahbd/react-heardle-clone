@@ -13,12 +13,109 @@
   color: pink;
 }
 
-#boxes {
-  display: block;
+/* HEADER */
+
+#header {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.7rem;
+}
+
+hr {
+  border: 0.05rem solid pink;
+  margin: 0 auto;
 }
 
 h1 {
-  margin: 0.8rem;
+  font-size: 6vh;
+}
+
+.info-button {
+  height: 6vh;
+  width: 6vh;
+  border-radius: 50%;
+  border: 2px solid pink;
+  font-size: 3.5vh;
+  color: pink;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.info-button:hover {
+  color: #121212;
+  background-color: pink;
+}
+
+/* INFO BOXES */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  text-align: center;
+  position: fixed;
+  background: #121212;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid pink;
+  padding: 3rem;
+}
+
+.modal-main > h2 {
+  font-size: 5vh;
+}
+
+.modal-main > p {
+  border: none;
+  color: pink;
+  line-height: 1.5;
+}
+
+a {
+  color: pink;
+  transition-duration: 0.3s;
+}
+
+a:hover {
+  color: white;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+#close-button {
+  font-family: "Montserrat";
+  font-size: x-large;
+  color: pink;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  transition-duration: 0.3s;
+}
+
+#close-button:hover {
+  color: white;
+}
+
+#boxes {
+  display: block;
 }
 
 #boxes > p,
@@ -39,34 +136,6 @@ input {
 button {
   color: white;
 }
-hr {
-  border: 0.5px solid pink;
-  margin: 0 auto;
-}
-
-#header {
-  justify-content: center;
-  width: 100%;
-  display: flex;
-}
-
-.info-button {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  border: 2px solid pink;
-  font-size: large;
-  color: pink;
-  margin: 1rem;
-  cursor: pointer;
-}
-
-#info-button {
-  margin-right: 20%;
-}
-#help-button {
-  margin-left: 20%;
-}
 
 #start-button,
 #submit,
@@ -77,6 +146,14 @@ hr {
   color: pink;
   margin-top: 5rem;
   cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+#start-button:hover,
+#submit:hover,
+#skip:hover {
+  color: #121212;
+  background-color: pink;
 }
 
 #player-buttons {
@@ -113,7 +190,6 @@ hr {
 .wrap {
   height: 100%;
   position: relative;
-  cursor: pointer;
 }
 .circle {
   border: 2px solid pink;
@@ -125,6 +201,12 @@ hr {
   bottom: 0;
   right: 0;
   left: 0;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.circle:hover {
+  border: 4px solid pink;
 }
 .circle:before {
   content: "";
@@ -138,53 +220,4 @@ hr {
   top: 15px;
   left: -12px;
   margin: auto;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.modal-main {
-  text-align: center;
-  position: fixed;
-  background: #121212;
-  width: 40%;
-  height: fit-content;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid pink;
-  padding: 2rem;
-}
-
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
-#close-button {
-  font-family: "Montserrat";
-  font-size: x-large;
-  color: pink;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 12px;
-}
-
-.modal-main > p {
-  border: none;
-  color: pink;
-  margin: 1rem;
-  margin-top: 0;
-  line-height: 1.5;
 }

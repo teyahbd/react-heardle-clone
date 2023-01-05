@@ -23,7 +23,7 @@ const InfoButton = ({ type }) => {
         hideModal={hideModal}
         type={type}
       ></InfoBox>
-      <button className="info-button" id={`${type}-button`} onClick={showModal}>
+      <button className="info-button" onClick={showModal}>
         {icon}
       </button>
     </>
