@@ -2,8 +2,7 @@ import GuessBoxes from "./GuessBoxes";
 import Result from "./Result";
 import Search from "./Body/Search";
 import Options from "./Body/Options";
-import Play from "./Body/Play";
-import ReactSuggestions from "./Body/ReactSuggestions";
+import PlayButton from "./Body/PlayButton";
 import * as spotifyApi from "../api";
 
 import { useEffect, useState } from "react";
@@ -18,6 +17,8 @@ const Body = ({ token }) => {
   const [guessOptions, setGuessOptions] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [songId, setSongId] = useState("05wIrZSwuaVWhcv5FfqeH0");
+
+  //TODO: update skip amount to increase with each skip
 
   const audioElement = new Audio(audioFile);
   const [audio, setAudio] = useState(audioElement);
@@ -41,7 +42,7 @@ const Body = ({ token }) => {
         <>
           <GuessBoxes previousGuesses={previousGuesses} />
           <br />
-          <Play
+          <PlayButton
             skipCount={previousGuesses.length}
             isCorrect={isCorrect}
             isPlaying={isPlaying}
